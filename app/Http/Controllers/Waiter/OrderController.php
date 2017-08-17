@@ -48,6 +48,7 @@ class OrderController extends MainController
 
     public function addProduct(Request $request, $id)
     {
+
         $product = $this->orderDetService->addOrderDetail($request, $id);
 
         return response($product, 200);

@@ -22,7 +22,6 @@ class CheckWorkShift
         if (is_null($workshift)) {
             \Auth::logout();
             \Session::flush();
-            \Session::push('message' , 'Work Shift is not open');
             return redirect()->route('login')->with('message' , 'Work Shift is not open');
         }
 

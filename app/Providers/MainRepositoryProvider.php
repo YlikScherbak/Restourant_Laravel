@@ -5,20 +5,30 @@ namespace App\Providers;
 use App\Model\Discount;
 use App\Model\Error;
 use App\Model\Floor;
+use App\Model\GeneralReport;
 use App\Model\MenuCategories;
 use App\Model\Order;
 use App\Model\OrderDetails;
 use App\Model\Product;
+use App\Model\Role;
+use App\Model\SubCategories;
 use App\Model\Table;
+use App\Model\User;
+use App\Model\WaiterReport;
 use App\Model\WorkShift;
 use App\Repository\Implementation\DiscountRepositoryImpl;
 use App\Repository\Implementation\ErrorRepositoryImpl;
 use App\Repository\Implementation\FloorRepositoryImpl;
+use App\Repository\Implementation\GeneralReportRepositoryImpl;
 use App\Repository\Implementation\MenuRepositoryImpl;
 use App\Repository\Implementation\OrderDetailRepositoryImpl;
 use App\Repository\Implementation\OrderRepositoryImpl;
 use App\Repository\Implementation\ProductRepositoryImpl;
+use App\Repository\Implementation\RoleRepositoryImpl;
+use App\Repository\Implementation\SubCategoryRepositoryImpl;
 use App\Repository\Implementation\TableRepositoryImpl;
+use App\Repository\Implementation\UserRepositoryImpl;
+use App\Repository\Implementation\WaiterReportRepositoryImpl;
 use App\Repository\Implementation\WorkShiftRepositoryImpl;
 use Illuminate\Support\ServiceProvider;
 
@@ -67,6 +77,26 @@ class MainRepositoryProvider extends ServiceProvider
 
         $this->app->bind('App\Repository\WorkShiftRepository', function () {
             return new WorkShiftRepositoryImpl(new WorkShift());
+        });
+
+        $this->app->bind('App\Repository\UserRepository', function () {
+            return new UserRepositoryImpl(new User());
+        });
+
+        $this->app->bind('App\Repository\RoleRepository', function () {
+            return new RoleRepositoryImpl(new Role());
+        });
+
+        $this->app->bind('App\Repository\SubCategoryRepository', function () {
+            return new SubCategoryRepositoryImpl(new SubCategories());
+        });
+
+        $this->app->bind('App\Repository\GeneralReportRepository', function () {
+            return new GeneralReportRepositoryImpl(new GeneralReport());
+        });
+
+        $this->app->bind('App\Repository\WaiterReportRepository', function () {
+            return new WaiterReportRepositoryImpl(new WaiterReport());
         });
     }
 }

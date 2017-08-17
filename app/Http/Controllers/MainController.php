@@ -20,6 +20,9 @@ class MainController extends Controller
     protected $discountService;
     protected $orderDetService;
     protected $errorService;
+    protected $workShiftService;
+    protected $userService;
+    protected $productService;
 
 
 

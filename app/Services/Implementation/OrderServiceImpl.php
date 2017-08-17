@@ -101,5 +101,13 @@ class OrderServiceImpl extends MainService implements OrderService
         return $order;
     }
 
+    public function getAllOrderPaginate($active)
+    {
+        if ($active){
+            return $this->orderRepository->getAllActiveOrderPaginate();
+        }
+        return $this->orderRepository->getAllOrderPaginate();
+    }
+
 
 }

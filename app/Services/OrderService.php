@@ -15,4 +15,6 @@ interface OrderService
 
     public function closeOrder($id);
 
+    public function getAllOrderPaginate($active);
+
 }

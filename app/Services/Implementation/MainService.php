@@ -3,7 +3,7 @@
 
 namespace App\Services\Implementation;
 
-use Auth;
+
 class MainService
 {
 
@@ -16,6 +16,11 @@ class MainService
     protected $discountRepository;
     protected $errorRepository;
     protected $workShiftRepository;
+    protected $userRepository;
+    protected $roleRepository;
+    protected $subcatRepository;
+    protected $genRepRepository;
+    protected $waiterRepRepository;
 
     public function __construct()
     {
@@ -28,6 +33,11 @@ class MainService
         $this->discountRepository = resolve('App\Repository\DiscountRepository');
         $this->errorRepository = resolve('App\Repository\ErrorRepository');
         $this->workShiftRepository = resolve('App\Repository\WorkShiftRepository');
+        $this->userRepository = resolve('App\Repository\UserRepository');
+        $this->roleRepository = resolve('App\Repository\RoleRepository');
+        $this->subcatRepository = resolve('App\Repository\SubCategoryRepository');
+        $this->genRepRepository = resolve('App\Repository\GeneralReportRepository');
+        $this->waiterRepRepository = resolve('App\Repository\WaiterReportRepository');
     }
 
 

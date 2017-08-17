@@ -23,4 +23,20 @@ class ErrorServiceImpl extends MainService implements ErrorService
         $this->errorRepository->save($error);
     }
 
+    public function getActiveError()
+    {
+        return $this->errorRepository->count();
+    }
+
+    public function getAll()
+    {
+        return $this->errorRepository->findAll();
+    }
+
+    public function deleteById($id)
+    {
+        $this->errorRepository->delete($id);
+    }
+
+
 }

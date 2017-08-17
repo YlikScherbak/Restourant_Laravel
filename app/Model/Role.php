@@ -20,5 +20,8 @@ class Role extends Model
 
     protected $fillable = ['id', 'role', 'created_at', 'updated_at'];
 
+    public function users() {
+        return $this->hasMany('App\Model\User');
+    }
 
 }

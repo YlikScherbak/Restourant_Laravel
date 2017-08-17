@@ -15,5 +15,10 @@ class OrderDetailRepositoryImpl extends MainRepository implements OrderDetailRep
         parent::__construct($model);
     }
 
+    public function delete($model)
+    {
+        $model->delete();
+    }
+
 
 }

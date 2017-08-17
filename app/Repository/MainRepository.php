@@ -11,10 +11,14 @@ interface MainRepository
 
     public function findAll();
 
-    public function  findById($id);
+    public function findById($id);
 
     public function save(Model $model);
 
     public function selectWhere($conditions = []);
+
+    public function count();
+
+    public function delete($id);
 
 }

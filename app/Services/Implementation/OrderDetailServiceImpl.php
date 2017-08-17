@@ -60,8 +60,33 @@ class OrderDetailServiceImpl extends MainService implements OrderDetailService
         $this->orderRepository->save($order);
 
         return $orderDetail->product_name;
+    }
+
+    public function deleteOrderDetail($request)
+    {
+        $data = $request->only('id', 'product_name');
+
+        $order = $this->orderRepository->findById($data['id']);
+
+        if ($order->active === false) {
+            return redirect(route('edit_order', ['id' => $request->get('id')]))->with('message', 'You cant edit closed order');
+        }
+
+        $orderDetail = $this->orderDetailRepository->selectWhere(
+            [
+                ['order_id', '=', $data['id']],
+                ['product_name', '=', $data['product_name']],
+            ]);
 
 
+        if (!is_null($order->discount)) {
+            $order->setAmountWhenDelete($orderDetail->count * $orderDetail->price);
+        } else {
+            $order->total_amount = $order->total_amount - ($orderDetail->count * $orderDetail->price);
+        }
+
+        $this->orderDetailRepository->delete($orderDetail);
+        $this->orderRepository->save($order);
     }
 
 

@@ -7,7 +7,9 @@ use App\Services\Implementation\ErrorServiceImpl;
 use App\Services\Implementation\MenuServiceImpl;
 use App\Services\Implementation\OrderDetailServiceImpl;
 use App\Services\Implementation\OrderServiceImpl;
+use App\Services\Implementation\ProductServiceImpl;
 use App\Services\Implementation\TableServiceImpl;
+use App\Services\Implementation\UserServiceImpl;
 use App\Services\Implementation\WorkShiftServiceImpl;
 use Illuminate\Support\ServiceProvider;
 
@@ -48,6 +50,14 @@ class MainServicesProvider extends ServiceProvider
 
         $this->app->bind('App\Services\WorkShiftService', function () {
             return new WorkShiftServiceImpl();
+        });
+
+        $this->app->bind('App\Services\UserService', function () {
+            return new UserServiceImpl();
+        });
+
+        $this->app->bind('App\Services\ProductService', function () {
+            return new ProductServiceImpl();
         });
 
     }

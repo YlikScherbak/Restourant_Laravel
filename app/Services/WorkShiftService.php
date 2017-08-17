@@ -9,4 +9,8 @@ interface WorkShiftService
 
     public function getActiveWorkShift();
 
+    public function openShift();
+
+    public function closeShift();
+
 }

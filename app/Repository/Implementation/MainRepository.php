@@ -39,5 +39,16 @@ class MainRepository implements Repository
         return $this->model->where($conditions)->first();
     }
 
+    public function count()
+    {
+        return $this->model->count();
+    }
+
+    public function delete($id)
+    {
+        $this->model::destroy($id);
+    }
+
+
 
 }

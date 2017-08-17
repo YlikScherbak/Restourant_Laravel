@@ -22,18 +22,16 @@ class User extends Authenticatable
     ];
 
     protected $fillable = [
-        'username', 'password', 'enabled', 'role_id', 'updated_at', 'created_at'
+        'username', 'password', 'enabled', 'role_id', 'updated_at', 'created_at',
     ];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['remember_token',];
 
     protected $with = ['role'];
 
 
     public function role() {
-        return $this->hasOne('App\Model\Role', 'id', 'role_id');
+        return $this->belongsTo('App\Model\Role', 'role_id', 'id');
     }
 
     public function orders() {

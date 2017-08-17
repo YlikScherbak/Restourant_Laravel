@@ -49,5 +49,10 @@ class Order extends Model
         $this->total_amount = $this->total_amount - $discAmount;
     }
 
+    public function setAmountWhenDelete($price) {
+        $this->discount_amount = $this->discount_amount - ($price * ($this->discount->percentage / 100));
+        $this->total_amount = $this->total_amount - ($price - ($price * ($this->discount->percentage / 100)));
+    }
+
 
 }
