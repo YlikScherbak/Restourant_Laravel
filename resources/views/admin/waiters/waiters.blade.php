@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('navbar')
-    @include('admin.admin_navbar')
+    {!! $navbar !!}
 @endsection
 
 @section('content')

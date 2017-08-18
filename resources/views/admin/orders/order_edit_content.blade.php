@@ -2,10 +2,10 @@
     <div class="container">
         <h2 style="display: inline">{{ 'Order№' . $order->id }}</h2>
     </div>
-    @if(Session::has('message'))
-        <div  class="alert alert-success">{{ Session::get('message') }}</div>
-    @endif
     <div class="container">
+        @if(Session::has('message'))
+            <div  class="alert alert-danger">{{ Session::get('message') }}</div>
+        @endif
         <table class="table table-striped table-hover table-bordered">
             <thead>
             <tr>

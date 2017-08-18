@@ -20,7 +20,7 @@ class WorkShiftServiceImpl extends MainService implements WorkShiftService
     public function openShift()
     {
         if (is_null($this->workShiftRepository->selectWhere([['active' , '=', true]]))){
-            $workShift = new WorkShift(['active' => true, 'creation_date' => Carbon::now()]);
+            $workShift = new WorkShift(['active' => true, 'creation_date' => Carbon::now(), 'closed_date' => Carbon::now()]);
             $this->workShiftRepository->save($workShift);
             return;
         }
@@ -32,6 +32,7 @@ class WorkShiftServiceImpl extends MainService implements WorkShiftService
     {
         $workShift = $this->getActiveWorkShift();
         $workShift->active = false;
+        $workShift->closed_date = Carbon::now();
         $this->workShiftRepository->save($workShift);
 
         $waiterReportData = $this->orderRepository->getReportInfo($workShift->id);
@@ -56,7 +57,12 @@ class WorkShiftServiceImpl extends MainService implements WorkShiftService
 
         $generalReport = $this->genRepRepository->save($generalReport);
 
-        return $generalReport;
+        return $generalReport->id;
+    }
+
+    public function getAll()
+    {
+        return $this->workShiftRepository->findAll();
     }
 
 

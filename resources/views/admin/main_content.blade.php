@@ -127,7 +127,7 @@
             @else
             <div>
                 <h2 align="center">No open shift</h2>
-                <a href="{{ route('close_shift') }}" class="btn btn-primary">
+                <a href="{{ route('open_shift') }}" class="btn btn-primary">
                     <i class="glyphicon glyphicon-play-circle"></i><br/>
                     Open new shift
                 </a>
@@ -135,23 +135,23 @@
             @endif
         </div>
 
-        {{--<!-- Отчёти  -->--}}
-        {{--<div class="col-md-9 well admin-content text-center" id="reports">--}}
-            {{--<a th:href="@{/admin/shifts/all}" class="btn btn-primary col-sm-3">--}}
-                {{--<i class="glyphicon glyphicon-list-alt"></i><br/>--}}
-                {{--Show all shifts--}}
-            {{--</a>--}}
-            {{--<form class="navbar-form navbar-right" role="search" th:action="@{/admin/shifts/search}" method="post">--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="form-control" name="id" placeholder="Search shift by id"/>--}}
-                {{--</div>--}}
-                {{--<button type="submit" class="btn btn-default">Search</button>--}}
-            {{--</form>--}}
-        {{--</div>--}}
+        <!-- Отчёти  -->
+        <div class="col-md-9 well admin-content text-center" id="reports">
+            <a href="{{ route('all_shift') }}" class="btn btn-primary col-sm-3">
+                <i class="glyphicon glyphicon-list-alt"></i><br/>
+                Show all shifts
+            </a>
+            <form class="navbar-form navbar-right" role="search" th:action="@{/admin/shifts/search}" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="id" placeholder="Search shift by id"/>
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
 
     </div>
 
-    {{ print_r(Session::all()   ) }}
+
 </div>
 
 <script>

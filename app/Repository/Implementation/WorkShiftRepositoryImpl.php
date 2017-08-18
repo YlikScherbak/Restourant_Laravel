@@ -15,5 +15,10 @@ class WorkShiftRepositoryImpl extends MainRepository implements WorkShiftReposit
         parent::__construct($model);
     }
 
+    public function findAll()
+    {
+        return $this->model->with('generalReport')->paginate(10);
+    }
+
 
 }

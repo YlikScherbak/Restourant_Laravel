@@ -22,6 +22,7 @@ class TableController extends MainController
         $this->title = 'Tables';
         $this->tableService = $tableService;
         $this->orderService = $orderService;
+        $this->navbar = $this->getWaiterNavbar();
     }
 
 

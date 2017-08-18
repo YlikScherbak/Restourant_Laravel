@@ -31,7 +31,7 @@ Route::group(['prefix' => 'waiter', 'middleware' => ['auth', 'waiter', 'work_shi
     });
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
     Route::get('/main', ['uses' => 'Admin\AdminController@showMain', 'as' => 'admin_main']);
 
@@ -40,6 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/workshift/open', ['uses' => 'Admin\AdminController@openShift', 'as' => 'open_shift']);
     Route::get('/workshift/close', ['uses' => 'Admin\AdminController@closeShift', 'as' => 'close_shift']);
+    Route::get('/workshift/all', ['uses' => 'Admin\AdminController@allShift', 'as' => 'all_shift']);
+
+    Route::get('/report/{id}', ['uses' => 'Admin\AdminController@getReport', 'as' => 'shift_report']);
 
 
     Route::group(['prefix' => '/waiter'], function () {

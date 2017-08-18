@@ -8,6 +8,7 @@ use App\Services\Implementation\MenuServiceImpl;
 use App\Services\Implementation\OrderDetailServiceImpl;
 use App\Services\Implementation\OrderServiceImpl;
 use App\Services\Implementation\ProductServiceImpl;
+use App\Services\Implementation\ReportServiceImpl;
 use App\Services\Implementation\TableServiceImpl;
 use App\Services\Implementation\UserServiceImpl;
 use App\Services\Implementation\WorkShiftServiceImpl;
@@ -58,6 +59,10 @@ class MainServicesProvider extends ServiceProvider
 
         $this->app->bind('App\Services\ProductService', function () {
             return new ProductServiceImpl();
+        });
+
+        $this->app->bind('App\Services\ReportService', function () {
+            return new ReportServiceImpl();
         });
 
     }

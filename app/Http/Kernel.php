@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -59,6 +58,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'waiter' => \App\Http\Middleware\CheckWaiter::class,
         'waiter_orders' => \App\Http\Middleware\CheckWaiterOrder::class,
-        'work_shift' => \App\Http\Middleware\CheckWorkShift::class
+        'work_shift' => \App\Http\Middleware\CheckWorkShift::class,
+        'admin' => \App\Http\Middleware\CheckAdmin::class,
     ];
 }

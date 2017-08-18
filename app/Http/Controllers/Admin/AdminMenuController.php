@@ -17,6 +17,7 @@ class AdminMenuController extends MainController
     {
         $this->menuService = $menuService;
         $this->productService = $productService;
+        $this->navbar = $this->getAdminNavbar();
     }
 
 

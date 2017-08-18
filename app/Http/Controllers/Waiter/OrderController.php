@@ -19,6 +19,7 @@ class OrderController extends MainController
         $this->discountService = $discountService;
         $this->orderDetService = $orderDetailService;
         $this->errorService = $errorService;
+        $this->navbar = $this->getWaiterNavbar();
     }
 
 

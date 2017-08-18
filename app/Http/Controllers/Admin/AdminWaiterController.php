@@ -13,6 +13,7 @@ class AdminWaiterController extends MainController
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
+        $this->navbar = $this->getAdminNavbar();
     }
 
 

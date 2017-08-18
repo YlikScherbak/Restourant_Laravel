@@ -18,6 +18,10 @@ class WorkShift extends Model
     ];
 
     public function orders() {
-        return $this->hasMany('App/Model/Order', 'work_shift_id', 'id');
+        return $this->hasMany('App\Model\Order', 'work_shift_id', 'id');
+    }
+
+    public function generalReport() {
+        return $this->hasOne('App\Model\GeneralReport', 'work_shift_id', 'id');
     }
 }

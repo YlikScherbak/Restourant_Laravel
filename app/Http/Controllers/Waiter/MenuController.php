@@ -16,6 +16,7 @@ class MenuController extends MainController
         $this->title = 'Menu';
         $this->template = 'waiter.menu';
         $this->menuService = $menuService;
+        $this->navbar = $this->getWaiterNavbar();
     }
 
 

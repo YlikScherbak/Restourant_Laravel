@@ -13,4 +13,6 @@ interface WorkShiftService
 
     public function closeShift();
 
+    public function getAll();
+
 }

@@ -7,13 +7,20 @@ namespace App\Services\Implementation;
 use App\Model\MenuCategories;
 use App\Model\SubCategories;
 use App\Services\MenuService;
+use Cache;
 
 class MenuServiceImpl extends MainService implements MenuService
 {
 
     public function getMenu()
     {
-        return $this->menuRepository->getMenu();
+        if (Cache::has('menu')) {
+            return Cache::get('menu');
+        } else {
+            $menu = $this->menuRepository->getMenu();
+            Cache::forever('menu', $menu);
+            return $menu;
+        }
     }
 
     public function saveNewMain($request)

@@ -15,6 +15,7 @@ class AdminOrderController extends MainController
     {
         $this->orderService = $orderService;
         $this->orderDetService = $orderDetailService;
+        $this->navbar = $this->getAdminNavbar();
     }
 
     public function allOrders($active = false) {

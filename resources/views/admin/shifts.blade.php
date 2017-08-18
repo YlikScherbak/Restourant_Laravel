@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    @include('admin.menu.all_main_content')
+    @include('admin.shifts_content')
 @endsection

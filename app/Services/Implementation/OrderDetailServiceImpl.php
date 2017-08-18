@@ -68,7 +68,8 @@ class OrderDetailServiceImpl extends MainService implements OrderDetailService
 
         $order = $this->orderRepository->findById($data['id']);
 
-        if ($order->active === false) {
+        
+        if ($order->active == false) {
             return redirect(route('edit_order', ['id' => $request->get('id')]))->with('message', 'You cant edit closed order');
         }
 
