@@ -18,7 +18,7 @@ class MenuServiceImpl extends MainService implements MenuService
             return Cache::get('menu');
         } else {
             $menu = $this->menuRepository->getMenu();
-            Cache::forever('menu', $menu);
+            Cache::put('menu', $menu, 15);
             return $menu;
         }
     }

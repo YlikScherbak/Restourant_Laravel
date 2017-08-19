@@ -25,43 +25,43 @@ class MainServicesProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('App\Services\TableService', function () {
+        $this->app->singleton('App\Services\TableService', function () {
             return new TableServiceImpl();
         });
 
-        $this->app->bind('App\Services\OrderService', function () {
+        $this->app->singleton('App\Services\OrderService', function () {
             return new OrderServiceImpl();
         });
 
-        $this->app->bind('App\Services\OrderDetailService', function () {
+        $this->app->singleton('App\Services\OrderDetailService', function () {
             return new OrderDetailServiceImpl();
         });
 
-        $this->app->bind('App\Services\MenuService', function () {
+        $this->app->singleton('App\Services\MenuService', function () {
             return new MenuServiceImpl();
         });
 
-        $this->app->bind('App\Services\DiscountService', function () {
+        $this->app->singleton('App\Services\DiscountService', function () {
             return new DiscountServiceImpl();
         });
 
-        $this->app->bind('App\Services\ErrorService', function () {
+        $this->app->singleton('App\Services\ErrorService', function () {
             return new ErrorServiceImpl();
         });
 
-        $this->app->bind('App\Services\WorkShiftService', function () {
+        $this->app->singleton('App\Services\WorkShiftService', function () {
             return new WorkShiftServiceImpl();
         });
 
-        $this->app->bind('App\Services\UserService', function () {
+        $this->app->singleton('App\Services\UserService', function () {
             return new UserServiceImpl();
         });
 
-        $this->app->bind('App\Services\ProductService', function () {
+        $this->app->singleton('App\Services\ProductService', function () {
             return new ProductServiceImpl();
         });
 
-        $this->app->bind('App\Services\ReportService', function () {
+        $this->app->singleton('App\Services\ReportService', function () {
             return new ReportServiceImpl();
         });
 

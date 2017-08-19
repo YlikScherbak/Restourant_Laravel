@@ -43,59 +43,59 @@ class MainRepositoryProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('App\Repository\DiscountRepository', function () {
+        $this->app->singleton('App\Repository\DiscountRepository', function () {
             return new DiscountRepositoryImpl(new Discount());
         });
 
-        $this->app->bind('App\Repository\FloorRepository', function () {
+        $this->app->singleton('App\Repository\FloorRepository', function () {
             return new FloorRepositoryImpl(new Floor());
         });
 
-        $this->app->bind('App\Repository\MenuRepository', function () {
+        $this->app->singleton('App\Repository\MenuRepository', function () {
             return new MenuRepositoryImpl(new MenuCategories());
         });
 
-        $this->app->bind('App\Repository\OrderDetailRepository', function () {
+        $this->app->singleton('App\Repository\OrderDetailRepository', function () {
             return new OrderDetailRepositoryImpl(new OrderDetails());
         });
 
-        $this->app->bind('App\Repository\TableRepository', function () {
+        $this->app->singleton('App\Repository\TableRepository', function () {
             return new TableRepositoryImpl(new Table());
         });
 
-        $this->app->bind('App\Repository\OrderRepository', function () {
+        $this->app->singleton('App\Repository\OrderRepository', function () {
             return new OrderRepositoryImpl(new Order());
         });
 
-        $this->app->bind('App\Repository\ProductRepository', function () {
+        $this->app->singleton('App\Repository\ProductRepository', function () {
             return new ProductRepositoryImpl(new Product());
         });
 
-        $this->app->bind('App\Repository\ErrorRepository', function () {
+        $this->app->singleton('App\Repository\ErrorRepository', function () {
             return new ErrorRepositoryImpl(new Error());
         });
 
-        $this->app->bind('App\Repository\WorkShiftRepository', function () {
+        $this->app->singleton('App\Repository\WorkShiftRepository', function () {
             return new WorkShiftRepositoryImpl(new WorkShift());
         });
 
-        $this->app->bind('App\Repository\UserRepository', function () {
+        $this->app->singleton('App\Repository\UserRepository', function () {
             return new UserRepositoryImpl(new User());
         });
 
-        $this->app->bind('App\Repository\RoleRepository', function () {
+        $this->app->singleton('App\Repository\RoleRepository', function () {
             return new RoleRepositoryImpl(new Role());
         });
 
-        $this->app->bind('App\Repository\SubCategoryRepository', function () {
+        $this->app->singleton('App\Repository\SubCategoryRepository', function () {
             return new SubCategoryRepositoryImpl(new SubCategories());
         });
 
-        $this->app->bind('App\Repository\GeneralReportRepository', function () {
+        $this->app->singleton('App\Repository\GeneralReportRepository', function () {
             return new GeneralReportRepositoryImpl(new GeneralReport());
         });
 
-        $this->app->bind('App\Repository\WaiterReportRepository', function () {
+        $this->app->singleton('App\Repository\WaiterReportRepository', function () {
             return new WaiterReportRepositoryImpl(new WaiterReport());
         });
     }
